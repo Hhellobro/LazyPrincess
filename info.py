@@ -12,9 +12,9 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'AlphaMovieBOT')
-API_ID = int(environ['20813113'])
-API_HASH = environ['431fb2a573604b219de19277a0d08b6c']
-BOT_TOKEN = environ['6718834728:AAHGjt3DU2PFyqtGMPUmYC6_08BTVEL2h4k']
+API_ID = int(environ['API_ID','20813113'])
+API_HASH = environ['API_HASH','431fb2a573604b219de19277a0d08b6c']
+BOT_TOKEN = environ['BOT_TOKEN','6718834728:AAHGjt3DU2PFyqtGMPUmYC6_08BTVEL2h4k']
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -26,8 +26,8 @@ ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '6492046740').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
-auth_channel = environ.get('-1002090718419')
-auth_grp = environ.get('AUTH_GROUP')
+auth_channel = environ.get('AUTH_CHANNEL','-1002090718419')
+auth_grp = environ.get('AUTH_GROUP','+5VlT64Ld5NJhZmU1')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
@@ -60,7 +60,7 @@ LAZY_MODE = bool(environ.get("True"))
 #Add user id of the user in this field those who you want to be Authentic user for file renaming features
 lazy_renamers = [int(lazrenamers) if id_pattern.search(lazrenamers) else lazrenamers for lazrenamers in environ.get('LAZY_RENAMERS', '6492046740').split()]
 LAZY_RENAMERS = (lazy_renamers + ADMINS) if lazy_renamers else []
-REQ_CHANNEL = int(environ.get('-1002126022949'))
+REQ_CHANNEL = int(environ.get('REQ_CHANNEL','-1002126022949'))
 
 #ai
 OPENAI_API = environ.get("OPENAI_API","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")
