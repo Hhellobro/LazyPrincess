@@ -1,5 +1,7 @@
 import re
 from os import getenv, environ
+from urllib.parse import quote_plus
+
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
@@ -12,9 +14,9 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'AlphaMovieBOT')
-API_ID = int(environ['API_ID','27920615'])
-API_HASH = environ['API_HASH','fca37d30df0f1d0846d91308f8569a0b']
-BOT_TOKEN = environ['BOT_TOKEN','6741315301:AAEZPQKEIAU_Tjvhwk6ZBNR79DzPf11ZJJE']
+API_ID = int(environ.get('API_ID','27920615')) 
+API_HASH = environ.get('API_HASH','fca37d30df0f1d0846d91308f8569a0b') 
+BOT_TOKEN = environ.get('BOT_TOKEN','6741315301:AAEZPQKEIAU_Tjvhwk6ZBNR79DzPf11ZJJE') 
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -27,21 +29,24 @@ CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHAN
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '5635069924').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL','-1002090718419')
-auth_grp = environ.get('AUTH_GROUP','+5VlT64Ld5NJhZmU1')
+auth_grp = environ.get('AUTH_GROUP','+urUT4TWSQukxZTRl')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
 # MongoDB information
+username="hellobro"
+password="Su1&7@9$2?11"
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://hellobro:Su1&7@9$2?11@cluster0.gtgqxwe.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
+DATABASE_URI = f"mongodb+srv://{quote_plus(username)}:{quote_plus(password)}@cluster0.gtgqxwe.mongodb.net/?retryWrites=true&w=majority"
 
 # Others
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL','-1002041193148'))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL','-1001836278939'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'AlphaDevloper')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
-SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "False")), False)
+SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "False")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "⚡<b>File uploaded by [AlphaMOVIE™](https://t.me/+dm_sqx1js1k1NmI1)</b>⚡\n\n🎦 <b>File Name: </b> ➥  <i>{file_caption}</i>\n⚙️ <b>Size: </b><i>{file_size}</i>\n\n                ❤️<b>WE LOVE YOU</b>❤️\n🔥  ↭ <b>Join Now [AlphaMOVIE™](https://t.me/+dm_sqx1js1k1NmI1)</b> ↭  🔥")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
 IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>Your Query: {query}</b> \n‌‌‌‌IMDb Data by: @AlphaDevlopers \n\n🏷 Title: <a href={url}>{title}</a>\n🎭 Genres: {genres}\n📆 Year: <a href={url}/releaseinfo>{year}</a>\n🌟 Rating: <a href={url}/ratings>{rating}</a> / 10 \n\n♥️ we are nothing without you ♥️ \n\n💛 Please Share Us 💛\n\n⚠️Click on the button 👇 below to get your query privately")
@@ -102,7 +107,7 @@ SLEEP_THRESHOLD = int(environ.get('SLEEP_THRESHOLD', '60'))
 WORKERS = int(environ.get('WORKERS', '4'))
 SESSION_NAME = str(environ.get('SESSION_NAME', 'AlphaMovieBOT'))
 MULTI_CLIENT = False
-name = str(environ.get('name', '@AlphaDevlopers'))
+name = str(environ.get('name', '@AlphaDevloperss'))
 PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
 if 'DYNO' in environ:
     ON_HEROKU = True
