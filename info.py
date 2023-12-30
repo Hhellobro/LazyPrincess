@@ -69,7 +69,7 @@ REQ_CHANNEL = int(environ.get('REQ_CHANNEL','-1002126022949'))
 
 #ai
 OPENAI_API = environ.get("OPENAI_API","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")
-AI = is_enabled((environ.get("AI","True")), True)
+AI = is_enabled((environ.get("AI","True")), False)
 LAZY_AI_LOGS = int(environ.get("LAZY_AI_LOGS","-1002023004406")) #GIVE YOUR NEW LOG CHANNEL ID TO STORE MESSAGES THAT THEY SEARCH IN BOT PM.... [ i have added this to keep an eye on the users message, to avoid misuse of LazyPrincess ]
 # Requested Content template variables ---
 ADMIN_USRNM = environ.get('ADMIN_USRNM','DevilAlpha') # WITHOUT @
